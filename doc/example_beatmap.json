@@ -1,0 +1,41 @@
+{
+	"length": 7, // Length of the song in seconds
+	"bpm": 60, // Beats per minuite in seconds
+	"beatmap":[
+		{
+			"id": 0, // The id in the array, just for human reading, no use.
+			"time": 1.00, // Time it appears in seconds
+			"x": 50,
+			"y": 50,
+			"childs":[1] // Array contains its child(s) in the beatmap array
+		},
+		{
+			"id": 1,
+			"time": 2.00,
+			"x": 50,
+			"y": 50,
+			"childs":[2, 3]
+		},
+		{
+			"id": 2,
+			"time": 3.00,
+			"x": 20,
+			"y": 50,
+			"childs":[4]
+		},
+		{
+			"id": 3,
+			"time": 4.00,
+			"x": 75,
+			"y": 50,
+			"childs":[4]
+		},
+		{
+			"id": 4,
+			"time": 5.00,
+			"x": 50,
+			"y": 50,
+			"childs":[] // When childs array is empty, the node would disappear when it was clicked or timeout.
+		}
+	]
+}

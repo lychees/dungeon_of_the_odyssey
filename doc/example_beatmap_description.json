@@ -1,0 +1,7 @@
+{
+	"title": "Demo Song", // Title of the song
+	"cover": "http://foo.bar/hello.jpg", // Cover of the song
+	"description": "LOREM IPSUM DOLOR\nSIT AMET, CONSECTETUR\nADIPISICING ELIT.\n\nAUTHOR: DEMO\nDIFFICULTY: 5 (MAX: 10)", // Description of the beatmap
+	"beatmap": "res/beatmap.json", // Beatmap url
+	"music": "res/demo_song.mp3" // Music url
+}
