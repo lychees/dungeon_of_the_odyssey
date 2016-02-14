@@ -1,6 +1,9 @@
 var dx = [-1, 0, 1, 0];
 var dy = [0, 1, 0, -1];
 
+
+var genTime = [];
+
 var maze = [
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
@@ -28,6 +31,16 @@ var Item = cc.Layer.extend({
     yy:0,
     ctor:function () {
         this._super();
+    },
+    genShadow:function(c) {
+        this.removeAllChildren();
+        var bg;
+        if (c == 0) bg = new cc.Sprite(res.tower_png, cc.rect(1*32, 3*32, 32, 32));
+        else if (c == 1) bg = new cc.Sprite(res.tower_png, cc.rect(6*32, 1*32, 32, 32));
+        else bg = new cc.Sprite(res.tower_png, cc.rect(3*32, 4*32, 32, 32));
+
+        bg.setAnchorPoint(0, 0);
+        this.addChild(bg);
     },
     genFloor:function(c) {
         this.removeAllChildren();
@@ -68,8 +81,11 @@ var GameLayer = cc.Layer.extend({
 
     floorLayer:null,
     tilesLayer:null,
+    shadowLayer:null,
 
     setLv: function(){
+
+        n = 30, m = 15
 
         this.floorLayer = new cc.Layer();
         this.floorLayer.setPosition(120, 120);
@@ -78,6 +94,13 @@ var GameLayer = cc.Layer.extend({
         this.tilesLayer = new cc.Layer();
         this.tilesLayer.setPosition(120, 120);
         this.addChild(this.tilesLayer);
+
+
+        this.shadowLayer = new cc.Layer();
+        this.shadowLayer.setPosition(120, 120);
+        this.addChild(this.shadowLayer);
+
+
 
         floor = []; tiles = [];
         for (var i=0;i<n;++i){
@@ -91,11 +114,31 @@ var GameLayer = cc.Layer.extend({
         var size = cc.director.getWinSize();
         for (var i=0;i<n;i++){
             for (var j=0;j<m;j++){
-                var c = maze[i][j]; t = new Item(); t.setContentSize(tileSize, tileSize);
+
+                var t = new Item(); t.setContentSize(tileSize, tileSize);
+                t.genShadow(0); this.shadowLayer.addChild(t); t.setPosition(i*(tileSize), j*(tileSize));
+
+                //setInterval(t.genShadow(1), 10000);
+
+                t.runAction(new cc.Sequence(new cc.DelayTime(genTime[i][j] / 100), new cc.CallFunc(function(t) {
+                    t.genShadow(1);
+                    t.runAction(new cc.Sequence(new cc.DelayTime(0.2), new cc.CallFunc(function(t) {
+                        t.genShadow(2);
+                    })));
+                })));
+
+
+                //var action = new cc.moveBy(2, cc.p(cageb.x, size.height*0.336)); //定义一个action
+                //var callback = new cc.CallFunc(function(){},this);  //定义一个回调
+                //var act = new cc.Sequence(action, callback);  //顺序执行
+                //cageb.runAction(act);
+
+
+                var c = maze[i][j]; var t = new Item(); t.setContentSize(tileSize, tileSize);
                 t.genFloor(c); this.floorLayer.addChild(t); t.setPosition(i*(tileSize), j*(tileSize)); tiles[i][j] = t;
 
                 if (i == 0 && j == m-1){
-                    var t = new Item(); t.setContentSize(tileSize, tileSize); t.genHero(c);
+                    var t = new Item(); t.setContentSize(tileSize, tileSize); t.genHero();
                     t.xx = i; t.yy = j; this.tilesLayer.addChild(t); t.setPosition(i*(tileSize), j*(tileSize));
                     player = t;
                 }
