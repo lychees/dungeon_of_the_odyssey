@@ -1,12 +1,12 @@
 <GameFile>
-  <PropertyGroup Name="SokobanScene" Type="Scene" ID="1df4e29a-8d7c-4fc3-aa59-a8a3acb57f7c" Version="3.10.0.0" />
+  <PropertyGroup Name="GameScene" Type="Scene" ID="1df4e29a-8d7c-4fc3-aa59-a8a3acb57f7c" Version="3.10.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
       <ObjectData Name="Scene" Tag="10" ctype="GameNodeObjectData">
         <Size X="1136.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="scroll_view" ActionTag="-1693850074" Tag="30" IconVisible="False" LeftMargin="133.0682" RightMargin="131.9318" TopMargin="128.9305" BottomMargin="31.0694" TouchEnable="True" ClipAble="True" BackColorAlpha="28" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="Vertical_Horizontal" ctype="ScrollViewObjectData">
+          <AbstractNodeData Name="scroll_view" ActionTag="-1693850074" Tag="30" IconVisible="False" LeftMargin="133.0982" RightMargin="131.9019" TopMargin="128.9289" BottomMargin="31.0711" TouchEnable="True" ClipAble="True" BackColorAlpha="28" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="Vertical_Horizontal" ctype="ScrollViewObjectData">
             <Size X="871.0000" Y="480.0000" />
             <AnchorPoint ScaleX="-0.1068" ScaleY="-0.0828" />
             <Position X="40.0754" Y="-8.6729" />
@@ -20,7 +20,7 @@
             <ColorVector ScaleY="1.0000" />
             <InnerNodeSize Width="871" Height="480" />
           </AbstractNodeData>
-          <AbstractNodeData Name="atk_icon" ActionTag="697707773" Tag="28" IconVisible="False" LeftMargin="25.8208" RightMargin="1078.1792" TopMargin="128.0092" BottomMargin="479.9908" ctype="SpriteObjectData">
+          <AbstractNodeData Name="atk_icon" ActionTag="697707773" Tag="28" IconVisible="False" LeftMargin="25.8192" RightMargin="1078.1808" TopMargin="128.0092" BottomMargin="479.9908" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.5313" ScaleY="0.4375" />
             <Position X="42.8208" Y="493.9908" />
@@ -31,7 +31,7 @@
             <FileData Type="Normal" Path="atk.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="def_icon" ActionTag="-1398808541" Tag="29" IconVisible="False" LeftMargin="23.0881" RightMargin="1080.9120" TopMargin="207.4103" BottomMargin="400.5897" ctype="SpriteObjectData">
+          <AbstractNodeData Name="def_icon" ActionTag="-1398808541" Tag="29" IconVisible="False" LeftMargin="23.0867" RightMargin="1080.9133" TopMargin="207.4088" BottomMargin="400.5912" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.6025" ScaleY="0.5252" />
             <Position X="42.3667" Y="417.3976" />
@@ -54,7 +54,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="def_text" ActionTag="1206258587" Tag="37" IconVisible="False" LeftMargin="91.8997" RightMargin="1022.1003" TopMargin="206.1950" BottomMargin="399.8050" FontSize="48" LabelText="4" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="def_text" ActionTag="1206258587" Tag="37" IconVisible="False" LeftMargin="91.8991" RightMargin="1022.1009" TopMargin="206.1957" BottomMargin="399.8043" FontSize="48" LabelText="4" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="22.0000" Y="34.0000" />
             <AnchorPoint ScaleX="0.2295" ScaleY="-0.3744" />
             <Position X="96.9481" Y="387.0747" />
@@ -88,6 +88,19 @@
             <FontResource Type="Normal" Path="PixelFont.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="ListView_1" ActionTag="-198701512" Alpha="0" Tag="21" IconVisible="False" LeftMargin="-2.0001" RightMargin="938.0001" TopMargin="438.0001" BottomMargin="1.9999" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
+            <Size X="200.0000" Y="200.0000" />
+            <AnchorPoint />
+            <Position X="-2.0001" Y="1.9999" />
+            <Scale ScaleX="5.6800" ScaleY="1.7050" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="-0.0018" Y="0.0031" />
+            <PreSize X="0.1761" Y="0.3125" />
+            <SingleColor A="255" R="150" G="150" B="255" />
+            <FirstColor A="255" R="150" G="150" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

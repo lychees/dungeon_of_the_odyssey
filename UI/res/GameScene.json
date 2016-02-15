@@ -57,10 +57,10 @@
               "X": 0.7667,
               "Y": 0.75
             },
-            "LeftMargin": 133.0682,
-            "RightMargin": 131.9318,
-            "TopMargin": 128.9305,
-            "BottomMargin": 31.0694,
+            "LeftMargin": 133.0982,
+            "RightMargin": 131.9019,
+            "TopMargin": 128.9289,
+            "BottomMargin": 31.0711,
             "Tag": 30,
             "ActionTag": -1693850074,
             "Size": {
@@ -102,8 +102,8 @@
               "X": 0.0282,
               "Y": 0.05
             },
-            "LeftMargin": 25.8208,
-            "RightMargin": 1078.1792,
+            "LeftMargin": 25.8192,
+            "RightMargin": 1078.1808,
             "TopMargin": 128.0092,
             "BottomMargin": 479.9908,
             "Tag": 28,
@@ -147,10 +147,10 @@
               "X": 0.0282,
               "Y": 0.05
             },
-            "LeftMargin": 23.0881,
-            "RightMargin": 1080.912,
-            "TopMargin": 207.4103,
-            "BottomMargin": 400.5897,
+            "LeftMargin": 23.0867,
+            "RightMargin": 1080.9133,
+            "TopMargin": 207.4088,
+            "BottomMargin": 400.5912,
             "Tag": 29,
             "ActionTag": -1398808541,
             "Size": {
@@ -255,10 +255,10 @@
               "X": 0.0194,
               "Y": 0.0531
             },
-            "LeftMargin": 91.8997,
-            "RightMargin": 1022.1003,
-            "TopMargin": 206.195,
-            "BottomMargin": 399.805,
+            "LeftMargin": 91.8991,
+            "RightMargin": 1022.1009,
+            "TopMargin": 206.1957,
+            "BottomMargin": 399.8043,
             "Tag": 37,
             "ActionTag": 1206258587,
             "Size": {
@@ -366,6 +366,58 @@
             },
             "Name": "hp_text",
             "ctype": "TextObjectData"
+          },
+          {
+            "DirectionType": "Vertical",
+            "ScrollDirectionType": 0,
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 150
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 150
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -2.0001,
+              "Y": 1.9999
+            },
+            "Scale": {
+              "ScaleX": 5.68,
+              "ScaleY": 1.705
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0018,
+              "Y": 0.0031
+            },
+            "PreSize": {
+              "X": 0.1761,
+              "Y": 0.3125
+            },
+            "LeftMargin": -2.0001,
+            "RightMargin": 938.0001,
+            "TopMargin": 438.0001,
+            "BottomMargin": 1.9999,
+            "Tag": 21,
+            "ActionTag": -198701512,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Alpha": 0,
+            "Name": "ListView_1",
+            "ctype": "ListViewObjectData"
           }
         ],
         "Size": {

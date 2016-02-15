@@ -249,7 +249,6 @@ var GameLayer = cc.Layer.extend({
         joystick.callback = this.onCallback.bind(this);
         this.addChild(joystick, 10, 101);
 
-
         var size = cc.winSize;
 
         if ('keyboard' in cc.sys.capabilities) {
