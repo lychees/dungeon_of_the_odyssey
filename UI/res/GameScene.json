@@ -1,0 +1,388 @@
+{
+  "ID": "1df4e29a-8d7c-4fc3-aa59-a8a3acb57f7c",
+  "Version": "2.3.4",
+  "Name": "GameScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 10,
+        "Children": [
+          {
+            "InnerNodeSize": {
+              "Width": 871,
+              "Height": 480
+            },
+            "ScrollDirectionType": "Vertical_Horizontal",
+            "ClipAble": true,
+            "BackColorAlpha": 28,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "G": 150,
+              "B": 100
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": -0.1068,
+              "ScaleY": -0.0828
+            },
+            "Position": {
+              "X": 40.0754,
+              "Y": -8.6729
+            },
+            "Scale": {
+              "ScaleX": 1.1135,
+              "ScaleY": 1.1802
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0353,
+              "Y": -0.0136
+            },
+            "PreSize": {
+              "X": 0.7667,
+              "Y": 0.75
+            },
+            "LeftMargin": 133.0682,
+            "RightMargin": 131.9318,
+            "TopMargin": 128.9305,
+            "BottomMargin": 31.0694,
+            "Tag": 30,
+            "ActionTag": -1693850074,
+            "Size": {
+              "X": 871.0,
+              "Y": 480.0
+            },
+            "Name": "scroll_view",
+            "ctype": "ScrollViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "atk.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5313,
+              "ScaleY": 0.4375
+            },
+            "Position": {
+              "X": 42.8208,
+              "Y": 493.9908
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0377,
+              "Y": 0.7719
+            },
+            "PreSize": {
+              "X": 0.0282,
+              "Y": 0.05
+            },
+            "LeftMargin": 25.8208,
+            "RightMargin": 1078.1792,
+            "TopMargin": 128.0092,
+            "BottomMargin": 479.9908,
+            "Tag": 28,
+            "ActionTag": 697707773,
+            "Size": {
+              "X": 32.0,
+              "Y": 32.0
+            },
+            "Name": "atk_icon",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "def.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.6025,
+              "ScaleY": 0.5252
+            },
+            "Position": {
+              "X": 42.3667,
+              "Y": 417.3976
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0373,
+              "Y": 0.6522
+            },
+            "PreSize": {
+              "X": 0.0282,
+              "Y": 0.05
+            },
+            "LeftMargin": 23.0881,
+            "RightMargin": 1080.912,
+            "TopMargin": 207.4103,
+            "BottomMargin": 400.5897,
+            "Tag": 29,
+            "ActionTag": -1398808541,
+            "Size": {
+              "X": 32.0,
+              "Y": 32.0
+            },
+            "Name": "def_icon",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 48,
+            "LabelText": "7",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "PixelFont.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 103.2963,
+              "Y": 493.5158
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0909,
+              "Y": 0.7711
+            },
+            "PreSize": {
+              "X": 0.0194,
+              "Y": 0.0531
+            },
+            "LeftMargin": 92.2963,
+            "RightMargin": 1021.7037,
+            "TopMargin": 129.4842,
+            "BottomMargin": 476.5158,
+            "Tag": 36,
+            "ActionTag": -431733315,
+            "Size": {
+              "X": 22.0,
+              "Y": 34.0
+            },
+            "Name": "atk_text",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 48,
+            "LabelText": "4",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "PixelFont.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.2295,
+              "ScaleY": -0.3744
+            },
+            "Position": {
+              "X": 96.9481,
+              "Y": 387.0747
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0853,
+              "Y": 0.6048
+            },
+            "PreSize": {
+              "X": 0.0194,
+              "Y": 0.0531
+            },
+            "LeftMargin": 91.8997,
+            "RightMargin": 1022.1003,
+            "TopMargin": 206.195,
+            "BottomMargin": 399.805,
+            "Tag": 37,
+            "ActionTag": 1206258587,
+            "Size": {
+              "X": 22.0,
+              "Y": 34.0
+            },
+            "Name": "def_text",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "hp.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 41.7356,
+              "Y": 566.4008
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0367,
+              "Y": 0.885
+            },
+            "PreSize": {
+              "X": 0.0282,
+              "Y": 0.05
+            },
+            "LeftMargin": 25.7356,
+            "RightMargin": 1078.2644,
+            "TopMargin": 57.5992,
+            "BottomMargin": 550.4008,
+            "Tag": 38,
+            "ActionTag": -1438343527,
+            "Size": {
+              "X": 32.0,
+              "Y": 32.0
+            },
+            "Name": "hp_icon",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 48,
+            "LabelText": "10\n",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "PixelFont.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 104.648,
+              "Y": 547.895
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0921,
+              "Y": 0.8561
+            },
+            "PreSize": {
+              "X": 0.029,
+              "Y": 0.1063
+            },
+            "LeftMargin": 88.148,
+            "RightMargin": 1014.852,
+            "TopMargin": 58.105,
+            "BottomMargin": 513.895,
+            "Tag": 40,
+            "ActionTag": 1011344288,
+            "Size": {
+              "X": 33.0,
+              "Y": 68.0
+            },
+            "Name": "hp_text",
+            "ctype": "TextObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1136.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "atk.png",
+        "def.png",
+        "hp.png",
+        "PixelFont.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

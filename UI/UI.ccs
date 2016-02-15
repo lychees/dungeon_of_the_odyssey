@@ -4,11 +4,13 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Project Name="AboutScene.csd" Type="Scene" />
-        <Image Name="HelloWorld.png" />
+        <Image Name="atk.png" />
+        <Image Name="def.png" />
+        <Project Name="GameScene.csd" Type="Scene" />
+        <Image Name="hp.png" />
         <TTF Name="PixelFont.ttf" />
         <Project Name="SelectScene.csd" Type="Scene" />
         <Project Name="SettingScene.csd" Type="Scene" />
-        <Project Name="SokobanScene.csd" Type="Scene" />
         <Project Name="WelcomeScene.csd" Type="Scene" />
       </RootFolder>
     </Group>

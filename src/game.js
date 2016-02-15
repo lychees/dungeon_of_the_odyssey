@@ -1,7 +1,6 @@
 var dx = [-1, 0, 1, 0];
 var dy = [0, 1, 0, -1];
 
-
 var genTime = [];
 
 var maze = [
@@ -30,6 +29,9 @@ var Item = cc.Layer.extend({
     ch:null,
     xx:0,
     yy:0,
+    dir:0,
+    state:0,
+
     ctor:function () {
         this._super();
     },
@@ -86,8 +88,11 @@ Item.create = function () {
     return this;
 };
 
+var _T = 0.1;
+
 var GameLayer = cc.Layer.extend({
 
+    scroll_view:null,
     floorLayer:null,
     tilesLayer:null,
     shadowLayer:null,
@@ -95,7 +100,12 @@ var GameLayer = cc.Layer.extend({
 
     update: function(){
         this.timer -= 1.0/60;
-
+        if (this.timer < 0) {
+            this.timer = _T;
+            if (player.state == 1){
+                player.tryMove(player.dir);
+            }
+        }
     },
 
 
@@ -108,19 +118,19 @@ var GameLayer = cc.Layer.extend({
     setLv: function(){
 
         n = 31, m = 15
-
+        this.scroll_view.setInnerContainerSize(cc.size(n*tileSize, m*tileSize));
         this.floorLayer = new cc.Layer();
-        this.floorLayer.setPosition(120, 120);
-        this.addChild(this.floorLayer);
+        this.floorLayer.setPosition(0, 0);
+        this.scroll_view.addChild(this.floorLayer);
 
         this.tilesLayer = new cc.Layer();
-        this.tilesLayer.setPosition(120, 120);
-        this.addChild(this.tilesLayer);
+        this.tilesLayer.setPosition(0, 0);
+        this.scroll_view.addChild(this.tilesLayer);
 
 
         this.shadowLayer = new cc.Layer();
-        this.shadowLayer.setPosition(120, 120);
-        this.addChild(this.shadowLayer);
+        this.shadowLayer.setPosition(0, 0);
+        this.scroll_view.addChild(this.shadowLayer);
 
 
 
@@ -166,10 +176,10 @@ var GameLayer = cc.Layer.extend({
         }
      },
 
-    ctor:function () {
-        this._super(); game = this; this.timer = 10;
 
-        var size = cc.winSize;
+    ctor:function () {
+        this._super(); game = this; this.timer = 0.5;
+
 
         var joystick = new Joystick(res.JoystickBG_png, res.Joystick_png, 50, TouchType.FOLLOW, DirectionType.EIGHT);
         joystick.setPosition(cc.p(100, 100));
@@ -180,26 +190,51 @@ var GameLayer = cc.Layer.extend({
         joystick.callback = this.onCallback.bind(this);
         this.addChild(joystick, 10, 101);
 
+        var GameScene = ccs.load(res.GameScene_json);
+        this.addChild(GameScene.node);
+        this.scroll_view = ccui.helper.seekWidgetByName(GameScene.node, "scroll_view");
+
+        //addChild();
+
+        var size = cc.winSize;
 
         if ('keyboard' in cc.sys.capabilities) {
             cc.eventManager.addListener({
                 event: cc.EventListener.KEYBOARD,
                 onKeyPressed: function (key, event) {
+                    var _T = _T * 2;
                     if (key == 37 || key == 65){ // A
+                        //if (player.state == 1 && player.dir == 0) return;
                         player.tryMove(0);
+                        /*this.timer = _T;
+                        player.state = 1;
+                        player.dir = 0;*/
                     }
                     else if (key == 38 || key == 87){ // W
+                        //if (player.state == 1 && player.dir == 1) return;
                         player.tryMove(1);
+                        /*this.timer = _T;
+                        player.state = 1;
+                        player.dir = 1;*/
                     }
                     else if (key == 39 || key == 68){ // D
-                        player.tryMove(2);
+                        //if (player.state == 1 && player.dir == 2) return;
+                        player.tryMove(2)
+                        /*this.timer = _T;
+                        player.state = 1;
+                        player.dir = 2;*/
                     }
                     else if (key == 40 || key == 83){ // S
-                        player.tryMove(3);
+                        //if (player.state == 1 && player.dir == 3) return;
+                        player.tryMove(3)
+                        /*this.timer = _T;;
+                        player.state = 1;
+                        player.dir = 3;*/
                     }
                     //if (isWin()) doWin();
                 },
                 onKeyReleased: function (key, event) {
+                    player.state = 0;
                 }
             }, this);
         } else {
@@ -217,5 +252,94 @@ var GameScene = cc.Scene.extend({
         var layer = new GameLayer();
         this.addChild(layer);
         //cc.audioEngine.playMusic("res/sounds/bgm.mp3", true);
+    }
+});
+
+
+var WelcomeLayer = cc.Layer.extend({
+    ctor:function () {
+        this._super();
+        this.scheduleUpdate();
+        var size = cc.winSize;
+        var welcome_scene = ccs.load(res.WelcomeScene_json);
+        this.addChild(welcome_scene.node);
+
+        var lbl_Title = ccui.helper.seekWidgetByName(welcome_scene.node, "lbl_title");
+        var btn_Start = ccui.helper.seekWidgetByName(welcome_scene.node, "btn_start");
+        var btn_Setting = ccui.helper.seekWidgetByName(welcome_scene.node, "btn_setting");
+        var btn_About = ccui.helper.seekWidgetByName(welcome_scene.node, "btn_about");
+
+        if ("touches" in cc.sys.capabilities){
+            btn_Start.addTouchEventListener(this.startBtnTouched, this);
+            btn_Setting.addTouchEventListener(this.settingBtnTouched, this);
+            btn_About.addTouchEventListener(this.aboutBtnTouched, this);
+
+        } else {
+            btn_Start.addClickEventListener(this.startBtnClicked.bind(this));
+            btn_Setting.addClickEventListener(this.settingBtnClicked.bind(this));
+            btn_About.addClickEventListener(this.aboutBtnClicked.bind(this));
+
+        }
+        return true;
+
+    },
+
+    update: function () {
+    },
+
+    startBtnTouched: function (sender, type){
+        switch (type) {
+            case ccui.Widget.TOUCH_BEGAN:
+                cc.audioEngine.stopAllEffects();
+                cc.audioEngine.playEffect(res.Effect_mp3, false);
+                cc.director.runScene(new cc.TransitionSlideInR(0.5, new GameScene()));
+                break;
+        }
+    },
+
+    startBtnClicked: function (sender) {
+        cc.audioEngine.stopAllEffects();
+        cc.audioEngine.playEffect(res.Effect_mp3, false);
+        cc.director.runScene(new cc.TransitionSlideInR(0.5, new GameScene()));
+    },
+
+    settingBtnTouched: function (sender, type){
+        /*switch (type) {
+            case ccui.Widget.TOUCH_BEGAN:
+                cc.audioEngine.stopAllEffects();
+                cc.audioEngine.playEffect(res.Effect_mp3, false);
+                cc.director.runScene(new cc.TransitionSlideInR(0.5, new SettingScene()));
+                break;
+        }*/
+    },
+
+    settingBtnClicked: function (sender) {
+        //cc.audioEngine.stopAllEffects();
+        //cc.audioEngine.playEffect(res.Effect_mp3, false);
+        //cc.director.runScene(new cc.TransitionSlideInR(0.5, new SettingScene()));
+    },
+
+    aboutBtnTouched: function (sender, type){
+        /*switch (type) {
+            case ccui.Widget.TOUCH_BEGAN:
+                cc.audioEngine.stopAllEffects();
+                cc.audioEngine.playEffect(res.Effect_mp3, false);
+                cc.director.runScene(new cc.TransitionSlideInR(0.5, new AboutScene()));
+                break;
+        }*/
+    },
+
+    aboutBtnClicked: function (sender) {
+        //cc.audioEngine.stopAllEffects();
+        //cc.audioEngine.playEffect(res.Effect_mp3, false);
+        //cc.director.runScene(new cc.TransitionSlideInR(0.5, new AboutScene()));
+    }
+});
+
+var WelcomeScene = cc.Scene.extend({
+    onEnter:function () {
+        this._super();
+        var layer = new WelcomeLayer();
+        this.addChild(layer);
     }
 });

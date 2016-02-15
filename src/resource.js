@@ -7,6 +7,10 @@ var res = {
     JoystickBG_png : "res/Graphics/JoystickBG.png",
     Icon_png : "res/Graphics/Icon.png",
 
+    Effect_mp3: "res/Audio/SE/effect.mp3",
+
+    WelcomeScene_json : "UI/res/WelcomeScene.json",
+    GameScene_json : "UI/res/GameScene.json",
     PixelFont_ttf: {type:"font", name:"PixelFont", srcs:["res/PixelFont.ttf"]}
 };
 

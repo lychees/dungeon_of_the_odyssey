@@ -1,0 +1,95 @@
+{
+  "ID": "4d10390f-25c2-489c-9284-d7d5c70df172",
+  "Version": "2.3.4",
+  "Name": "SettingScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 10,
+        "Children": [
+          {
+            "FontSize": 80,
+            "ButtonText": "BACK",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "PixelFont.ttf",
+              "Plist": ""
+            },
+            "TextColor": {},
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 224,
+            "Scale9Height": 68,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 121.9959,
+              "Y": 589.4081
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.1271,
+              "Y": 0.921
+            },
+            "PreSize": {
+              "X": 0.2406,
+              "Y": 0.1109
+            },
+            "LeftMargin": 6.4959,
+            "RightMargin": 722.504,
+            "TopMargin": 15.0919,
+            "BottomMargin": 553.9081,
+            "Tag": 11,
+            "ActionTag": 391473865,
+            "Size": {
+              "X": 231.0,
+              "Y": 71.0
+            },
+            "Name": "btn_Back",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1136.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "PixelFont.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

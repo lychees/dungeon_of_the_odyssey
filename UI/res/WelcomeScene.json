@@ -1,0 +1,327 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "2.3.4",
+  "Name": "WelcomeScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": 1804112957,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 568.0,
+                "Y": 485.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1804112957,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1804112957,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FontSize": 100,
+            "LabelText": "Dungeon of the Odyssey",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "PixelFont.ttf",
+              "Plist": ""
+            },
+            "HorizontalAlignmentType": "HT_Center",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 4.0,
+            "ShadowOffsetY": -4.0,
+            "ShadowEnabled": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 568.0,
+              "Y": 485.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.7578
+            },
+            "PreSize": {
+              "X": 0.9067,
+              "Y": 0.1109
+            },
+            "LeftMargin": 53.0,
+            "RightMargin": 53.0,
+            "TopMargin": 119.5,
+            "BottomMargin": 449.5,
+            "Tag": 6,
+            "ActionTag": 1804112957,
+            "Size": {
+              "X": 1030.0,
+              "Y": 71.0
+            },
+            "Name": "lbl_title",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 80,
+            "ButtonText": "START",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "PixelFont.ttf",
+              "Plist": ""
+            },
+            "TextColor": {},
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 153,
+            "Scale9Height": 35,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 551.0,
+              "Y": 255.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.485,
+              "Y": 0.3984
+            },
+            "PreSize": {
+              "X": 0.2033,
+              "Y": 0.1109
+            },
+            "LeftMargin": 435.5,
+            "RightMargin": 469.5,
+            "TopMargin": 349.5,
+            "BottomMargin": 219.5,
+            "Tag": 7,
+            "ActionTag": -514576878,
+            "Size": {
+              "X": 231.0,
+              "Y": 71.0
+            },
+            "Name": "btn_start",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 80,
+            "ButtonText": "SETTING",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "PixelFont.ttf",
+              "Plist": ""
+            },
+            "TextColor": {},
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 226,
+            "Scale9Height": 35,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 551.0,
+              "Y": 191.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.485,
+              "Y": 0.2984
+            },
+            "PreSize": {
+              "X": 0.2033,
+              "Y": 0.1109
+            },
+            "LeftMargin": 435.5,
+            "RightMargin": 469.5,
+            "TopMargin": 413.5,
+            "BottomMargin": 155.5,
+            "Tag": 8,
+            "ActionTag": 982463276,
+            "Size": {
+              "X": 231.0,
+              "Y": 71.0
+            },
+            "Name": "btn_setting",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 80,
+            "ButtonText": "ABOUT",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "PixelFont.ttf",
+              "Plist": ""
+            },
+            "TextColor": {},
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 153,
+            "Scale9Height": 35,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 551.0,
+              "Y": 127.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.485,
+              "Y": 0.1984
+            },
+            "PreSize": {
+              "X": 0.2033,
+              "Y": 0.1109
+            },
+            "LeftMargin": 435.5,
+            "RightMargin": 469.5,
+            "TopMargin": 477.5,
+            "BottomMargin": 91.5,
+            "Tag": 9,
+            "ActionTag": 2007581637,
+            "Size": {
+              "X": 231.0,
+              "Y": 71.0
+            },
+            "Name": "btn_about",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1136.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "PixelFont.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
