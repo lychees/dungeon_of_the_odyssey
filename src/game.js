@@ -19,6 +19,7 @@ var maze = [
 ];
 var n = maze.length;
 var m = maze[0].length;
+alert('ok');
 
 var game = null;
 var player = null;
@@ -45,7 +46,10 @@ var Item = cc.Layer.extend({
     genFloor:function(c) {
         this.removeAllChildren();
         var bg; if (c == 0) bg = new cc.Sprite(res.tower_png, cc.rect(1*32, 0, 32, 32));
-        else bg = new cc.Sprite(res.tower_png, cc.rect(6*32, 0, 32, 32));
+        else{
+            //bg = new cc.Sprite(res.tower_png, cc.rect(6*32, 0, 32, 32));
+            bg = new cc.Sprite(res.tower_png, cc.rect(3*32, 4*32, 32, 32));
+        }
         bg.setAnchorPoint(0, 0);
         this.addChild(bg);
     },
@@ -64,10 +68,15 @@ var Item = cc.Layer.extend({
     genImage:function(c){
     },
     tryMove:function(d){
-        var t = new cc.moveBy(0.2, cc.p(dx[d] * 32, dy[d] * 32));
-        this.runAction(t);
+        var x = this.xx + dx[d], y = this.yy + dy[d];
+        if (!inMaze(x, y)) return;
+        if (maze[x][y]) return;
+        this.doMove(d);
     },
     doMove:function(d) {
+        this.xx += dx[d]; this.yy += dy[d];
+        var t = new cc.moveBy(0.2, cc.p(dx[d] * 32, dy[d] * 32));
+        this.runAction(t);
     }
 });
 
@@ -76,16 +85,21 @@ Item.create = function () {
     return this;
 };
 
-
 var GameLayer = cc.Layer.extend({
 
     floorLayer:null,
     tilesLayer:null,
     shadowLayer:null,
+    timer:0,
+
+    update: function(){
+        this.timer -= 1.0/60;
+
+    },
 
     setLv: function(){
 
-        n = 30, m = 15
+        n = 31, m = 15
 
         this.floorLayer = new cc.Layer();
         this.floorLayer.setPosition(120, 120);
@@ -127,12 +141,10 @@ var GameLayer = cc.Layer.extend({
                     })));
                 })));
 
-
                 //var action = new cc.moveBy(2, cc.p(cageb.x, size.height*0.336)); //定义一个action
                 //var callback = new cc.CallFunc(function(){},this);  //定义一个回调
                 //var act = new cc.Sequence(action, callback);  //顺序执行
                 //cageb.runAction(act);
-
 
                 var c = maze[i][j]; var t = new Item(); t.setContentSize(tileSize, tileSize);
                 t.genFloor(c); this.floorLayer.addChild(t); t.setPosition(i*(tileSize), j*(tileSize)); tiles[i][j] = t;
@@ -147,7 +159,9 @@ var GameLayer = cc.Layer.extend({
      },
 
     ctor:function () {
-        this._super(); game = this;
+        this._super(); game = this; this.timer = 10;
+
+
 
         if ('keyboard' in cc.sys.capabilities) {
             cc.eventManager.addListener({
@@ -174,6 +188,7 @@ var GameLayer = cc.Layer.extend({
             cc.log("KEYBOARD Not supported");
         }
         this.setLv();
+        this.scheduleUpdate();
         return true;
     }
 });

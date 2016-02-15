@@ -1,0 +1,23 @@
+<UserData Version="3.10.0.0">
+  <Properties>
+    <Item Key="CocosRecentOperation">
+      <Value ctype="CocosRecentOperation">
+        <LastPublishType Value="Resource" />
+        <IsLastPublish Value="True" />
+        <LastRunType Value="Windows" />
+      </Value>
+    </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="SelectScene.csd" />
+          <FilePathData Path="AboutScene.csd" />
+          <FilePathData Path="SokobanScene.csd" />
+          <FilePathData Path="WelcomeScene.csd" />
+          <FilePathData Path="SettingScene.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="WelcomeScene.csd" />
+      </Value>
+    </Item>
+  </Properties>
+</UserData>

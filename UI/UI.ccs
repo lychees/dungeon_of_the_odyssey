@@ -1,0 +1,16 @@
+<Solution>
+  <PropertyGroup Name="UI" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Project Name="AboutScene.csd" Type="Scene" />
+        <Image Name="HelloWorld.png" />
+        <TTF Name="PixelFont.ttf" />
+        <Project Name="SelectScene.csd" Type="Scene" />
+        <Project Name="SettingScene.csd" Type="Scene" />
+        <Project Name="SokobanScene.csd" Type="Scene" />
+        <Project Name="WelcomeScene.csd" Type="Scene" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
