@@ -21,9 +21,9 @@ var Joystick = cc.Node.extend({
     _angle: null,       //角度
     _radian: null,      //弧度
     //_target: null,      //操控的目标
-    _speed: 4096,          //实际速度
-    _speed1: 4096,         //一段速度
-    _speed2: 2048,         //二段速度
+    _speed: 6,          //实际速度
+    _speed1: 6,         //一段速度
+    _speed2: 3,         //二段速度
     _touchType: null,   //触摸类型
     _directionType: null,   //方向类型
     _opacity: 0,        //透明度
@@ -247,8 +247,10 @@ var Joystick = cc.Node.extend({
     _fourDirectionsMove: function()
     {
 
-        if (this._timer--) return;
 
+        //cc.log(this._timer);
+        cc.log(this._speed);
+        if (this._timer-- >= 0) return;
         this._timer = this._speed;
 
 
@@ -295,8 +297,13 @@ var Joystick = cc.Node.extend({
     _eightDirectionsMove: function()
     {
 
-        if (this._timer--) return;
+
+
+        cc.log(this._speed);
+        if (this._timer-- >= 0) return;
         this._timer = this._speed;
+
+        //
 
         var alpha = 5;
         var dir = [], val = [];
@@ -466,20 +473,20 @@ var Joystick = cc.Node.extend({
     //设置一段速度
     setSpeedwithLevel1: function(speed)
     {
-        this._speed1 = speed;
+        //this._speed1 = speed;
     },
 
     //设置二段速度
     setSpeedwithLevel2: function(speed)
     {
-        if(this._speed1 < speed)
+        /*&if(this._speed1 < speed)
         {
             this._speed2 = speed;
         }
         else
         {
             this._speed2 = this._speed2;
-        }
+        }*/
     },
 
     //设置遥控杆开关
