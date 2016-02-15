@@ -16,6 +16,9 @@ var maze = [
     [0, 0, 0, 1, 0, 0],
     [0, 0, 0, 0, 0, 0],
 ];
+
+var monsters = [];
+
 var n = maze.length;
 var m = maze[0].length;
 var tx, ty;
@@ -59,6 +62,12 @@ var Item = cc.Layer.extend({
     genHero:function(){
         this.removeAllChildren();
         var bg; bg = new cc.Sprite(res.hero_png, cc.rect(0, 0, 32, 32));
+        bg.setAnchorPoint(0, 0);
+        this.addChild(bg);
+    },
+    genMonster:function(){
+        this.removeAllChildren();
+        var bg; bg = new cc.Sprite(res.monster01_png, cc.rect(0, 0, 32, 32));
         bg.setAnchorPoint(0, 0);
         this.addChild(bg);
     },
@@ -126,10 +135,11 @@ var GameLayer = cc.Layer.extend({
         this.tilesLayer.removeAllChildren();
         this.shadowLayer.removeAllChildren();
 
-        floor = []; tiles = [];
+        floor = []; tiles = []; monsters = [];
         for (var i=0;i<n;++i){
-            floor[i] = []; tiles[i] = [];
+            floor[i] = []; tiles[i] = []; monsters[i] = [];
             for (var j=0;j<m;++j){
+                monsters[i][j] = 0;
             }
         }
 
@@ -145,9 +155,21 @@ var GameLayer = cc.Layer.extend({
             }
         }
 
-        var tt = parseInt(Math.random() * E.length);
+        //var tt = parseInt(Math.random() * E.length);
+
+        random_shuffl(E);
+
+        var tt = 0;
         tx = parseInt(E[tt] / m);
         ty = E[tt] % m;
+
+        //if (Math.random < 0.5){
+        tt = 1;
+        var xx = parseInt(E[tt] / m);
+        var yy = E[tt] % m;
+        monsters[xx][yy] = 1;
+        //}
+
 
         //cc.log(tx); cc.log(ty);
 
@@ -186,6 +208,10 @@ var GameLayer = cc.Layer.extend({
                     t.xx = i; t.yy = j; this.tilesLayer.addChild(t); t.setPosition(i*(tileSize), j*(tileSize));
                 }
 
+                if (monsters[i][j] != 0){
+                    var t = new Item(); t.setContentSize(tileSize, tileSize); t.genMonster(monsters[i][j]);
+                    t.xx = i; t.yy = j; this.tilesLayer.addChild(t); t.setPosition(i*(tileSize), j*(tileSize));
+                }
             }
         }
      },

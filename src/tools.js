@@ -42,3 +42,9 @@ var findFont = function(resource) {
         return resource.name;
     }
 };
+
+function random_shuffl(arr){
+    return arr.sort(function(a, b){
+        return (0.5 - Math.random());
+    });
+}
