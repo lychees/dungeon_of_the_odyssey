@@ -21,9 +21,9 @@ var Joystick = cc.Node.extend({
     _angle: null,       //角度
     _radian: null,      //弧度
     //_target: null,      //操控的目标
-    _speed: 0,          //实际速度
-    _speed1: 480,         //一段速度
-    _speed2: 240,         //二段速度
+    _speed: 4096,          //实际速度
+    _speed1: 4096,         //一段速度
+    _speed2: 2048,         //二段速度
     _touchType: null,   //触摸类型
     _directionType: null,   //方向类型
     _opacity: 0,        //透明度
@@ -251,6 +251,9 @@ var Joystick = cc.Node.extend({
 
         this._timer = this._speed;
 
+
+        //
+
         if(this._angle > 45 && this._angle < 135)
         {
             player.tryMove(1);
@@ -291,6 +294,122 @@ var Joystick = cc.Node.extend({
     //八个方向移动(上下左右、左上、右上、左下、右下)
     _eightDirectionsMove: function()
     {
+
+        if (this._timer--) return;
+        this._timer = this._speed;
+
+        var alpha = 5;
+        var dir = [], val = [];
+
+        dir.push(1); val.push(Math.abs(this._angle - 90));
+        dir.push(3); val.push(Math.abs(this._angle + 90));
+        dir.push(0); val.push(Math.min(Math.abs(this._angle - 180), Math.abs(this._angle + 180)));
+        dir.push(2); val.push(Math.abs(this._angle));
+
+        for (var i=0;i<4;++i){
+            for (var j=i+1;j<4;++j) if (val[j] < val[i]){
+                var t = val[i]; val[i] = val[j]; val[j] = t;
+                t = dir[i]; dir[i] = dir[j]; dir[j] = t;
+            }
+        }
+
+        if (val[0] <= alpha){
+            player.tryMove(dir[0]);
+        }
+        else{
+            if (!player.tryMove(dir[0])){
+                player.tryMove(dir[1]);
+            }
+        }
+
+
+
+
+
+        /*
+        if(this._angle >= 90 - alpha && this._angle <= 90 + alpha) //90
+        {
+            //this._target.y += this._speed;
+            player.tryMove(1);
+        }
+        else if(this._angle >= -90 - alpha && this._angle <= -90 + alpha) //-90
+        {
+            //this._target.y -= this._speed;
+            player.tryMove(3);
+        }
+        else if(this._angle <= -180 + alpha && this._angle >= -180 || this._angle >= 180 - alpha && this._angle <= 180) // 180
+        {
+            //this._target.x -= this._speed;
+            player.tryMove(0);
+        }
+        else if(this._angle <= 0 && this._angle >= -alpha || this._angle >= 0 && this._angle < alpha) //0
+        {
+            //this._target.x += this._speed;
+            player.tryMove(2);
+        }
+        else if(this._angle > 112.5 && this._angle < 157.5)
+        {
+            if (Math.abs(this._angle - 90) <= 45) {
+                if (!player.tryMove(1)) {
+                    player.tryMove(0);
+                }
+            }
+            else{
+                if (!player.tryMove(0)) {
+                    player.tryMove(1);
+                }
+            }
+
+            //this._target.x -= this._speed / 1.414;
+            //this._target.y += this._speed / 1.414;
+        }
+        else if(this._angle > 22.5 && this._angle < 67.5)
+        {
+            //this._target.x += this._speed / 1.414;
+            //this._target.y += this._speed / 1.414;
+
+            if (Math.abs(this._angle - 90) <= 45) {
+                if (!player.tryMove(1)) {
+                    player.tryMove(2);
+                }
+            }
+            else{
+                if (!player.tryMove(2)) {
+                    player.tryMove(1);
+                }
+            }
+        }
+        else if(this._angle > -157.5 && this._angle < -112.5)
+        {
+
+            if (Math.abs(this._angle + 90) <= 45) {
+                if (!player.tryMove(3)) {
+                    player.tryMove(0);
+                }
+            }
+            else{
+                if (!player.tryMove(0)) {
+                    player.tryMove(3);
+                }
+            }
+            //this._target.x -= this._speed / 1.414;
+            //this._target.y -= this._speed / 1.414;
+        }
+        else if(this._angle > -67.5 && this._angle < -22.5)
+        {
+            if (Math.abs(this._angle + 90) <= 45) {
+                if (!player.tryMove(3)) {
+                    player.tryMove(2);
+                }
+            }
+            else{
+                if (!player.tryMove(2)) {
+                    player.tryMove(3);
+                }
+            }
+            //this._target.x += this._speed / 1.414;
+            //this._target.y -= this._speed / 1.414;
+        }*/
         /*if(this._angle > 67.5 && this._angle < 112.5)
         {
             this._target.y += this._speed;

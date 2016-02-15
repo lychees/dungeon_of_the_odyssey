@@ -69,9 +69,10 @@ var Item = cc.Layer.extend({
     },
     tryMove:function(d){
         var x = this.xx + dx[d], y = this.yy + dy[d];
-        if (!inMaze(x, y)) return;
-        if (maze[x][y]) return;
+        if (!inMaze(x, y)) return false;
+        if (maze[x][y]) return false;
         this.doMove(d);
+        return true;
     },
     doMove:function(d) {
         this.xx += dx[d]; this.yy += dy[d];
@@ -170,7 +171,7 @@ var GameLayer = cc.Layer.extend({
 
         var size = cc.winSize;
 
-        var joystick = new Joystick(res.JoystickBG_png, res.Joystick_png, 50, TouchType.FOLLOW, DirectionType.FOUR);
+        var joystick = new Joystick(res.JoystickBG_png, res.Joystick_png, 50, TouchType.FOLLOW, DirectionType.EIGHT);
         joystick.setPosition(cc.p(100, 100));
         joystick.setSpeedwithLevel1(1);
         joystick.setSpeedwithLevel2(2);
