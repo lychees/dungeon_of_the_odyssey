@@ -19,7 +19,7 @@ var maze = [
 ];
 var n = maze.length;
 var m = maze[0].length;
-alert('o');
+alert('ok');
 
 var game = null;
 var player = null;
