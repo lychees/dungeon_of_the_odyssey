@@ -20,8 +20,6 @@ var enqueue = function(x, y){
         if (maze[xx][yy] == 0) ++cnt;
     }
 
-
-
     if (true){
         maze[x][y] = 0;
         var Ox = [], Oy = [];
@@ -59,7 +57,7 @@ var enqueue = function(x, y){
     }
 }
 
-var genWalls = function(){
+var genWalls = function(sx, sy){
     /*for (var i=0;i<n;++i){
         maze[i] = [];
         for (var j=0;j<m;++j){
@@ -77,7 +75,7 @@ var genWalls = function(){
     }
 
     ;
-    var x = 0, y = m-1; vis[x][y] = true; enqueue(x, y);
+    var x = sx, y = sy; vis[x][y] = true; enqueue(x, y);
 
     while (Qx.length){
         var len = Qx.length;

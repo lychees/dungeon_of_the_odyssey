@@ -18,6 +18,7 @@ var maze = [
 ];
 var n = maze.length;
 var m = maze[0].length;
+var tx, ty;
 //alert('ok2');
 
 var game = null;
@@ -61,7 +62,7 @@ var Item = cc.Layer.extend({
         bg.setAnchorPoint(0, 0);
         this.addChild(bg);
     },
-    genStair:function(){
+    genStair:function(d){
         this.removeAllChildren();
         var bg; bg = new cc.Sprite(res.tower_png, cc.rect(32*1, 32*31, 32, 32));
         bg.setAnchorPoint(0, 0);
@@ -78,6 +79,9 @@ var Item = cc.Layer.extend({
     },
     doMove:function(d) {
         this.xx += dx[d]; this.yy += dy[d];
+        if (this.xx == tx && this.yy == ty){
+            game.setLv(tx, ty);
+        }
         var t = new cc.moveBy(0.2, cc.p(dx[d] * 32, dy[d] * 32));
         this.runAction(t);
     }
@@ -115,24 +119,12 @@ var GameLayer = cc.Layer.extend({
         cc.log("回调:" + angle);
     },
 
-    setLv: function(){
-
-        n = 31, m = 15
-        this.scroll_view.setInnerContainerSize(cc.size(n*tileSize, m*tileSize));
-        this.floorLayer = new cc.Layer();
-        this.floorLayer.setPosition(0, 0);
-        this.scroll_view.addChild(this.floorLayer);
-
-        this.tilesLayer = new cc.Layer();
-        this.tilesLayer.setPosition(0, 0);
-        this.scroll_view.addChild(this.tilesLayer);
+    setLv: function(sx, sy){
 
 
-        this.shadowLayer = new cc.Layer();
-        this.shadowLayer.setPosition(0, 0);
-        this.scroll_view.addChild(this.shadowLayer);
-
-
+        this.floorLayer.removeAllChildren();
+        this.tilesLayer.removeAllChildren();
+        this.shadowLayer.removeAllChildren();
 
         floor = []; tiles = [];
         for (var i=0;i<n;++i){
@@ -141,7 +133,23 @@ var GameLayer = cc.Layer.extend({
             }
         }
 
-        genWalls();
+        genWalls(sx, sy);
+
+
+        var E = [];
+        for (var i=0;i<n;i++) {
+            for (var j=0;j<m; j++) {
+                if (maze[i][j] == 0 && (i != sx || j != sy)){
+                    E.push(i*m+j);
+                }
+            }
+        }
+
+        var tt = parseInt(Math.random() * E.length);
+        tx = parseInt(E[tt] / m);
+        ty = E[tt] % m;
+
+        //cc.log(tx); cc.log(ty);
 
         var size = cc.director.getWinSize();
         for (var i=0;i<n;i++){
@@ -167,11 +175,17 @@ var GameLayer = cc.Layer.extend({
                 var c = maze[i][j]; var t = new Item(); t.setContentSize(tileSize, tileSize);
                 t.genFloor(c); this.floorLayer.addChild(t); t.setPosition(i*(tileSize), j*(tileSize)); tiles[i][j] = t;
 
-                if (i == 0 && j == m-1){
+                if (i == sx && j == sy){
                     var t = new Item(); t.setContentSize(tileSize, tileSize); t.genHero();
                     t.xx = i; t.yy = j; this.tilesLayer.addChild(t); t.setPosition(i*(tileSize), j*(tileSize));
                     player = t;
                 }
+
+                if (i == tx && j == ty){
+                    var t = new Item(); t.setContentSize(tileSize, tileSize); t.genStair(0);
+                    t.xx = i; t.yy = j; this.tilesLayer.addChild(t); t.setPosition(i*(tileSize), j*(tileSize));
+                }
+
             }
         }
      },
@@ -179,6 +193,25 @@ var GameLayer = cc.Layer.extend({
 
     ctor:function () {
         this._super(); game = this; this.timer = 0.5;
+        n = 31, m = 15;
+
+        var GameScene = ccs.load(res.GameScene_json);
+        this.addChild(GameScene.node);
+        this.scroll_view = ccui.helper.seekWidgetByName(GameScene.node, "scroll_view");
+
+        this.scroll_view.setInnerContainerSize(cc.size(n*tileSize, m*tileSize));
+        this.floorLayer = new cc.Layer();
+        this.floorLayer.setPosition(0, 0);
+        this.scroll_view.addChild(this.floorLayer);
+
+        this.tilesLayer = new cc.Layer();
+        this.tilesLayer.setPosition(0, 0);
+        this.scroll_view.addChild(this.tilesLayer);
+
+
+        this.shadowLayer = new cc.Layer();
+        this.shadowLayer.setPosition(0, 0);
+        this.scroll_view.addChild(this.shadowLayer);
 
 
         var joystick = new Joystick(res.JoystickBG_png, res.Joystick_png, 50, TouchType.FOLLOW, DirectionType.EIGHT);
@@ -190,11 +223,6 @@ var GameLayer = cc.Layer.extend({
         joystick.callback = this.onCallback.bind(this);
         this.addChild(joystick, 10, 101);
 
-        var GameScene = ccs.load(res.GameScene_json);
-        this.addChild(GameScene.node);
-        this.scroll_view = ccui.helper.seekWidgetByName(GameScene.node, "scroll_view");
-
-        //addChild();
 
         var size = cc.winSize;
 
@@ -240,7 +268,7 @@ var GameLayer = cc.Layer.extend({
         } else {
             cc.log("KEYBOARD Not supported");
         }
-        this.setLv();
+        this.setLv(0, m-1);
         this.scheduleUpdate();
         return true;
     }
