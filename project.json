@@ -15,6 +15,7 @@
         "src/jquery-2.1.4.js",
         "src/tools.js",
         "src/resource.js",
+        "src/Joystick.js",
         "src/game.js",
         "src/gen.js"
     ]

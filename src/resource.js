@@ -3,6 +3,10 @@ var res = {
     hero_png: "res/Graphics/002-Braver01.png",
     tower_png: "res/Graphics/魔塔.png",
 
+    Joystick_png : "res/Graphics/Joystick.png",
+    JoystickBG_png : "res/Graphics/JoystickBG.png",
+    Icon_png : "res/Graphics/Icon.png",
+
     PixelFont_ttf: {type:"font", name:"PixelFont", srcs:["res/PixelFont.ttf"]}
 };
 

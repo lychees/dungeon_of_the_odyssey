@@ -97,6 +97,13 @@ var GameLayer = cc.Layer.extend({
 
     },
 
+
+    onCallback: function()
+    {
+        var angle = this.getChildByTag(101).getAngle();
+        cc.log("回调:" + angle);
+    },
+
     setLv: function(){
 
         n = 31, m = 15
@@ -161,6 +168,16 @@ var GameLayer = cc.Layer.extend({
     ctor:function () {
         this._super(); game = this; this.timer = 10;
 
+        var size = cc.winSize;
+
+        var joystick = new Joystick(res.JoystickBG_png, res.Joystick_png, 50, TouchType.FOLLOW, DirectionType.FOUR);
+        joystick.setPosition(cc.p(100, 100));
+        joystick.setSpeedwithLevel1(1);
+        joystick.setSpeedwithLevel2(2);
+        //joystick.setOpacity(128);
+        //joystick.setEnable(true);
+        joystick.callback = this.onCallback.bind(this);
+        this.addChild(joystick, 10, 101);
 
 
         if ('keyboard' in cc.sys.capabilities) {
